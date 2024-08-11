@@ -1,0 +1,20 @@
+{
+    "twitch_tokens": {
+        "client_id": "your_client_id_here",
+        "client_secret": "your_client_secret_here"
+    },
+    "streamers": [
+        {"name": "YAKOV", "watch_time": 7200},
+        {"name": "ZChum", "watch_time": 7200},
+        {"name": "SnuffyFluffy", "watch_time": 7200},
+        {"name": "Oilrats", "watch_time": 7200},
+        {"name": "TORE1005", "watch_time": 7200},
+        {"name": "Valair", "watch_time": 7200},
+        {"name": "throattwitch", "watch_time": 7200},
+        {"name": "BASETRADETV", "watch_time": 7200},
+        {"name": "qaixx", "watch_time": 7200}
+    ],
+    "chrome_driver_path": "C:/Path/To/Your/chromedriver.exe",
+    "profile_path": "C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile 1",
+    "game_name": "Rust"
+}
