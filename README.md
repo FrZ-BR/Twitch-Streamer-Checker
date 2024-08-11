@@ -59,3 +59,6 @@ To ensure that the script works correctly and maintains login sessions, it's rec
        "profile_path": "C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile 1",
        "game_name": "Rust"
    }
+
+
+### Step 6: Log in to your Twitch account in the Chrome profile that is created the first time you run the script.
