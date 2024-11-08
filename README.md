@@ -63,3 +63,5 @@ To ensure that the script works correctly and maintains login sessions, it's rec
 
 
 ### Step 6: Log in to your Twitch account in the Chrome profile that is created the first time you run the script.
+
+### TESTED WITH CHROME 130.0.6723.117 
