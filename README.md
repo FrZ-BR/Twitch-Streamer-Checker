@@ -35,7 +35,7 @@ To ensure that the script works correctly and maintains login sessions, it's rec
 1. **Open Chrome:** Launch the Google Chrome browser.
 2. **Access Profile Settings:** Click on the profile icon at the top-right corner of the Chrome window and select "Add".
 3. **Create a New Profile:** Choose a name, select an icon, and click "Add". A new Chrome window will open with your new profile.
-   - *RUN TO CREATE THE PROFILE:**" `C:/Program Files/Google/Chrome/Application/chrome.exe" --user-data-dir="C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile X"` where `X` is the profile number
+   - **RUN TO CREATE THE PROFILE:**" `C:/Program Files/Google/Chrome/Application/chrome.exe" --user-data-dir="C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile X"` where `X` is the profile number
    - Access https://twitch.tv and log-in with your credetendials (THIS IS THE ONLY WAY TO BE ABLE TO LOGIN ON TWITCH. USE THE SAME PROFILE ABOVE TO USE ON THE SCRIPT)
 4. **Locate Profile Path:** 
    - **Windows:** The profile path will be something like `C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile X`, where `X` is the profile number (SAME AS ABOVE). 
