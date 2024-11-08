@@ -35,12 +35,13 @@ To ensure that the script works correctly and maintains login sessions, it's rec
 1. **Open Chrome:** Launch the Google Chrome browser.
 2. **Access Profile Settings:** Click on the profile icon at the top-right corner of the Chrome window and select "Add".
 3. **Create a New Profile:** Choose a name, select an icon, and click "Add". A new Chrome window will open with your new profile.
-4. **Sign In (Optional):** If you want to sync your bookmarks, history, and other settings, you can sign in with your Google account.
-5. **Locate Profile Path:** 
-   - **Windows:** The profile path will be something like `C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile X`, where `X` is the profile number. For the first additional profile, it’s usually `Profile 1`.
+   - *RUN TO CREATE THE PROFILE:**" `C:/Program Files/Google/Chrome/Application/chrome.exe" --user-data-dir="C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile X"` where `X` is the profile number
+   - Access https://twitch.tv and log-in with your credetendials (THIS IS THE ONLY WAY TO BE ABLE TO LOGIN ON TWITCH. USE THE SAME PROFILE ABOVE TO USE ON THE SCRIPT)
+4. **Locate Profile Path:** 
+   - **Windows:** The profile path will be something like `C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile X`, where `X` is the profile number (SAME AS ABOVE). 
    - **Mac/Linux:** The path will be similar but within your home directory.
 
-### Step 5: Add the Tokens and Profile Path to the Script Configuration
+### Step 4: Add the Tokens and Profile Path to the Script Configuration
 
 1. Open the `config.json` file that the script uses.
 2. Add the `client_id`, `client_secret`, and `profile_path` values under the corresponding sections:
