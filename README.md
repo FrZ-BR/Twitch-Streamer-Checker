@@ -52,9 +52,23 @@ To ensure that the script works correctly and maintains login sessions, it's rec
            "client_id": "your_client_id_here",
            "client_secret": "your_client_secret_here"
        },
-       "streamers": [
-           {"name": "YAKOV", "watch_time": 7200},
-           {"name": "ZChum", "watch_time": 7200}
+     "streamer_groups": [
+        {
+            "reward": "Sheet Metal Double Door",
+            "streamers": [
+                {"name": "xXxTheFocuSxXx", "watch_time": 7290},
+                {"name": "s3kox", "watch_time": 7290}
+            ],
+            "total_watch_time": 7290
+        },
+        {
+            "reward": "Jacket",
+            "streamers": [
+                {"name": "Willjum", "watch_time": 7290},
+                {"name": "SinksR", "watch_time": 7290}
+            ],
+            "total_watch_time": 7290
+        }
        ],
        "chrome_driver_path": "C:/Path/To/Your/chromedriver.exe",
        "profile_path": "C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile 1",
@@ -64,4 +78,11 @@ To ensure that the script works correctly and maintains login sessions, it's rec
 
 ### Step 6: Log in to your Twitch account in the Chrome profile that is created the first time you run the script.
 
-### TESTED WITH CHROME 130.0.6723.117 
+# POSSIBILITY ERRORS:
+
+- If you encounter the error:
+"Your browser is not currently supported. Please use a recommended browser or learn more here."
+
+Use the Cookie-Editor extension to import your access cookies to the new browser.
+
+### TESTED WITH CHROME 131.0.6778.109
