@@ -124,6 +124,7 @@ while True:
         send_webhook_message("✅ All rewards have been completed.")
         break
 
+    total_remaining = len(incomplete_groups)  # Count remaining rewards
     for group in incomplete_groups:
         reward = group["reward"]
         total_watch_time = group["total_watch_time"]
@@ -143,7 +144,9 @@ while True:
                     url = f'https://www.twitch.tv/{streamer_name}'
                     remaining = total_watch_time - time_watched
                     mins, secs = divmod(remaining, 60)
-                    send_webhook_message(f"🎥 Starting to watch {streamer_name} for reward '{reward}'. Time remaining: {mins} minutes and {secs} seconds.")
+                    send_webhook_message(f"🎥 Starting to watch {streamer_name} for reward '{reward}'. "
+                                         f"Time remaining: {mins} minutes and {secs} seconds. "
+                                         f"Remaining rewards: {total_remaining}.")
                     logging.info(f'Opening URL: {url}')
                     driver.get(url)
 
@@ -159,9 +162,10 @@ while True:
                         os.system(f'title Watching {streamer_name} for reward "{reward}" - Remaining: {mins:02d}:{secs:02d}')
 
                         if remaining % 300 == 0:  # Every 5 minutes
-                            send_webhook_message(f"⏳ {streamer_name} - Reward '{reward}': {mins} minutes and {secs} seconds remaining.")
+                            send_webhook_message(f"⏳ {streamer_name} - Reward '{reward}': {mins} minutes and {secs} seconds remaining. "
+                                                 f"Remaining rewards: {total_remaining}.")
 
-                    send_webhook_message(f"✅ Completed reward '{reward}' by watching {streamer_name}.")
+                    send_webhook_message(f"✅ Completed reward '{reward}' by watching {streamer_name}. Remaining rewards: {total_remaining - 1}.")
                     logging.info(f'Time completed for reward "{reward}". Closing browser...')
                     driver.quit()
                     break
