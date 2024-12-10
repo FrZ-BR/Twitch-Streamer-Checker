@@ -30,10 +30,29 @@ if os.path.exists(progress_file):
 else:
     watch_progress = {group["reward"]: 0 for group in config["streamer_groups"]}
 
+# Webhook URL and message prefix
+webhook_url = config.get("webhook_url")
+message_prefix = config.get("message_prefix", "")
+
 # Save progress
 def save_watch_progress():
     with open(progress_file, 'w') as pf:
         json.dump(watch_progress, pf)
+
+# Function to send messages to the webhook
+def send_webhook_message(message):
+    if not webhook_url:
+        logging.warning("Webhook URL is not configured. Skipping webhook message.")
+        return
+    try:
+        full_message = f"{message_prefix} {message}".strip()
+        response = requests.post(webhook_url, json={"content": full_message})
+        if response.status_code == 204:
+            logging.info("Webhook message sent successfully.")
+        else:
+            logging.error(f"Failed to send webhook message. HTTP {response.status_code}: {response.text}")
+    except Exception as e:
+        logging.error(f"Error sending webhook message: {e}")
 
 # Twitch API credentials
 client_id = config["twitch_tokens"]["client_id"]
@@ -102,6 +121,7 @@ while True:
     
     if not incomplete_groups:
         logging.info('All rewards have been completed. Exiting...')
+        send_webhook_message("✅ All rewards have been completed.")
         break
 
     for group in incomplete_groups:
@@ -109,7 +129,6 @@ while True:
         total_watch_time = group["total_watch_time"]
         time_watched = watch_progress[reward]
         
-        # Skip if the reward's total watch time is completed
         if time_watched >= total_watch_time:
             logging.info(f'Reward "{reward}" is already completed. Skipping...')
             continue
@@ -118,41 +137,41 @@ while True:
             streamer_name = streamer["name"]
 
             try:
-                # Start a new WebDriver session for the streamer
                 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-                # Check if the streamer is online and playing the specified game
                 if is_streamer_online_and_playing(access_token, client_id, streamer_name, game_name):
                     url = f'https://www.twitch.tv/{streamer_name}'
+                    remaining = total_watch_time - time_watched
+                    mins, secs = divmod(remaining, 60)
+                    send_webhook_message(f"🎥 Starting to watch {streamer_name} for reward '{reward}'. Time remaining: {mins} minutes and {secs} seconds.")
                     logging.info(f'Opening URL: {url}')
                     driver.get(url)
 
-                    # Start monitoring
                     start_time = time.time()
                     while time_watched < total_watch_time:
-                        time.sleep(1)  # Increment in fixed intervals
-                        time_watched += 1  # Add 1 second per iteration
+                        time.sleep(1)
+                        time_watched += 1
                         watch_progress[reward] = min(time_watched, total_watch_time)
                         save_watch_progress()
 
                         remaining = total_watch_time - time_watched
-                        if remaining <= 0:
-                            break
-                        
                         mins, secs = divmod(remaining, 60)
                         os.system(f'title Watching {streamer_name} for reward "{reward}" - Remaining: {mins:02d}:{secs:02d}')
 
+                        if remaining % 300 == 0:  # Every 5 minutes
+                            send_webhook_message(f"⏳ {streamer_name} - Reward '{reward}': {mins} minutes and {secs} seconds remaining.")
+
+                    send_webhook_message(f"✅ Completed reward '{reward}' by watching {streamer_name}.")
                     logging.info(f'Time completed for reward "{reward}". Closing browser...')
                     driver.quit()
-                    break  # Stop checking other streamers in the same group
+                    break
 
                 else:
                     logging.info(f'{streamer_name} is not online or not playing {game_name}. Skipping...')
+                    send_webhook_message(f"⚠️ {streamer_name} is not online or not playing {game_name}. Trying another streamer...")
                     driver.quit()
 
             except Exception as e:
                 logging.error(f'Error with {streamer_name}: {e}')
+                send_webhook_message(f"❌ Error while processing {streamer_name}: {e}")
                 driver.quit()
-
-# Ensure all browsers are closed after the loop
-logging.info('All streamers and rewards have been processed.')
