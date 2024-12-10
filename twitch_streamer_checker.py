@@ -114,17 +114,19 @@ access_token = get_access_token(client_id, client_secret)
 
 # Loop through reward groups until all are completed
 while True:
+    # Recalcular recompensas incompletas no início de cada iteração
     incomplete_groups = [
         group for group in config["streamer_groups"]
         if watch_progress[group["reward"]] < group["total_watch_time"]
     ]
     
+    total_remaining = len(incomplete_groups)  # Recalcular o total de recompensas restantes
+
     if not incomplete_groups:
         logging.info('All rewards have been completed. Exiting...')
         send_webhook_message("✅ All rewards have been completed.")
         break
 
-    total_remaining = len(incomplete_groups)  # Count remaining rewards
     for group in incomplete_groups:
         reward = group["reward"]
         total_watch_time = group["total_watch_time"]
@@ -165,7 +167,9 @@ while True:
                             send_webhook_message(f"⏳ {streamer_name} - Reward '{reward}': {mins} minutes and {secs} seconds remaining. "
                                                  f"Remaining rewards: {total_remaining}.")
 
-                    send_webhook_message(f"✅ Completed reward '{reward}' by watching {streamer_name}. Remaining rewards: {total_remaining - 1}.")
+                    # Atualizar total_remaining após a conclusão da recompensa
+                    total_remaining -= 1
+                    send_webhook_message(f"✅ Completed reward '{reward}' by watching {streamer_name}. Remaining rewards: {total_remaining}.")
                     logging.info(f'Time completed for reward "{reward}". Closing browser...')
                     driver.quit()
                     break
