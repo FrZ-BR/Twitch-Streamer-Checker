@@ -52,7 +52,9 @@ To ensure that the script works correctly and maintains login sessions, it's rec
            "client_id": "your_client_id_here",
            "client_secret": "your_client_secret_here"
        },
-     "streamer_groups": [
+           "webhook_url": "DISCORD-WEBHOOK",
+           "message_prefix": "[01]",
+           "streamer_groups": [
         {
             "reward": "Sheet Metal Double Door",
             "streamers": [
