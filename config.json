@@ -3,6 +3,8 @@
         "client_id": "your_client_id_here",
         "client_secret": "your_client_secret_here"
     },
+    "webhook_url": "DISCORD-WEBHOOK",
+    "message_prefix": "[01]",
     "streamer_groups": [
         {
             "reward": "Sheet Metal Double Door",
