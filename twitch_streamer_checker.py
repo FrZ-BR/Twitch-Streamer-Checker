@@ -135,7 +135,7 @@ while True:
             continue
 
         for streamer in group["streamers"]:
-            streamer_name = streamer["name"]
+            streamer_name = streamer
 
             try:
                 driver = webdriver.Chrome(service=service, options=chrome_options)
