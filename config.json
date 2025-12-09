@@ -1,107 +1,73 @@
 {
-    "twitch_tokens": {
-        "client_id": "your_client_id_here",
-        "client_secret": "your_client_secret_here"
+  "twitch_tokens": {
+    "client_id": "your_client_id_here",
+    "client_secret": "your_client_secret_here"
+  },
+  "webhook_url": "DISCORD-WEBHOOK",
+  "message_prefix": "[01]",
+  "streamer_groups": [
+    {
+      "reward": "Sheet Metal Double Door",
+      "streamers": ["xXxTheFocuSxXx", "s3kox"],
+      "total_watch_time": 7290
     },
-    "webhook_url": "DISCORD-WEBHOOK",
-    "message_prefix": "[01]",
-    "streamer_groups": [
-        {
-            "reward": "Sheet Metal Double Door",
-            "streamers": [
-                {"name": "xXxTheFocuSxXx", "watch_time": 7290},
-                {"name": "s3kox", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Jacket2",
-            "streamers": [
-                {"name": "Willjum", "watch_time": 7290},
-                {"name": "SinksR", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "MP5",
-            "streamers": [
-                {"name": "Oilrats", "watch_time": 7290},
-                {"name": "riqqeloff", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Garage Door",
-            "streamers": [
-                {"name": "NoraExplorer", "watch_time": 7290},
-                {"name": "CoconutB", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Assault Rifle",
-            "streamers": [
-                {"name": "Nikof", "watch_time": 7290},
-                {"name": "ElMamene", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Rocket Launcher",
-            "streamers": [
-                {"name": "Mendo", "watch_time": 7290},
-                {"name": "deathwingua", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Sheet Metal Door",
-            "streamers": [
-                {"name": "Krolay", "watch_time": 7290},
-                {"name": "JLFranklin_", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Thompson",
-            "streamers": [
-                {"name": "dilanzito", "watch_time": 7290},
-                {"name": "IsLautaARG00", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Semi-Automatic Pistol",
-            "streamers": [
-                {"name": "Dhalucard", "watch_time": 7290},
-                {"name": "CaptainMyko", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Vending Machine",
-            "streamers": [
-                {"name": "Blooprint", "watch_time": 7290},
-                {"name": "hJune", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-	   {
-            "reward": "Backpack",
-            "streamers": [
-                {"name": "TwitchRivals", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Jacket",
-            "streamers": [
-                {"name": "TwitchRivals", "watch_time": 14490}
-            ],
-            "total_watch_time": 14490
-        }
-    ],
-    "chrome_driver_path": "C:/Path/To/Your/chromedriver.exe",
-    "profile_path": "C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile 1",
-    "game_name": "Rust"
+    {
+      "reward": "Jacket2",
+      "streamers": ["Willjum", "SinksR"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "MP5",
+      "streamers": ["Oilrats", "riqqeloff"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Garage Door",
+      "streamers": ["NoraExplorer", "CoconutB"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Assault Rifle",
+      "streamers": ["Nikof", "ElMamene"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Rocket Launcher",
+      "streamers": ["Mendo", "deathwingua"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Sheet Metal Door",
+      "streamers": ["Krolay", "JLFranklin_"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Thompson",
+      "streamers": ["dilanzito", "IsLautaARG00"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Semi-Automatic Pistol",
+      "streamers": ["Dhalucard", "CaptainMyko"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Vending Machine",
+      "streamers": ["Blooprint", "hJune"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Backpack",
+      "streamers": ["TwitchRivals"],
+      "total_watch_time": 7290
+    },
+    {
+      "reward": "Jacket",
+      "streamers": ["TwitchRivals"],
+      "total_watch_time": 14490
+    }
+  ],
+  "chrome_driver_path": "C:/Path/To/Your/chromedriver.exe",
+  "profile_path": "C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile 1",
+  "game_name": "Rust"
 }
