@@ -48,33 +48,27 @@ To ensure that the script works correctly and maintains login sessions, it's rec
 
    ```json
    {
-       "twitch_tokens": {
-           "client_id": "your_client_id_here",
-           "client_secret": "your_client_secret_here"
+     "twitch_tokens": {
+       "client_id": "your_client_id_here",
+       "client_secret": "your_client_secret_here"
+     },
+     "webhook_url": "DISCORD-WEBHOOK",
+     "message_prefix": "[01]",
+     "streamer_groups": [
+       {
+         "reward": "Sheet Metal Double Door",
+         "streamers": ["xXxTheFocuSxXx", "s3kox"],
+         "total_watch_time": 7290
        },
-           "webhook_url": "DISCORD-WEBHOOK",
-           "message_prefix": "[01]",
-           "streamer_groups": [
-        {
-            "reward": "Sheet Metal Double Door",
-            "streamers": [
-                {"name": "xXxTheFocuSxXx", "watch_time": 7290},
-                {"name": "s3kox", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        },
-        {
-            "reward": "Jacket",
-            "streamers": [
-                {"name": "Willjum", "watch_time": 7290},
-                {"name": "SinksR", "watch_time": 7290}
-            ],
-            "total_watch_time": 7290
-        }
-       ],
-       "chrome_driver_path": "C:/Path/To/Your/chromedriver.exe",
-       "profile_path": "C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile 1",
-       "game_name": "Rust"
+       {
+         "reward": "Jacket2",
+         "streamers": ["Willjum", "SinksR"],
+         "total_watch_time": 7290
+       }
+     ],
+     "chrome_driver_path": "C:/Path/To/Your/chromedriver.exe",
+     "profile_path": "C:/Users/YourUsername/AppData/Local/Google/Chrome/User Data/Profile 1",
+     "game_name": "Rust"
    }
 
 
