@@ -87,4 +87,4 @@ To ensure that the script works correctly and maintains login sessions, it's rec
 
 Use the Cookie-Editor extension to import your access cookies to the new browser.
 
-### TESTED WITH CHROME 131.0.6778.109
+### TESTED WITH CHROME 143.0.7499.40
